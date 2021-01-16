@@ -35,7 +35,6 @@ class DemoMainPage:
         self.laptop_SONY_VAIO_i7 = self.browser.find_element(*LaptopDemoProductLocators.SONY_VAIO_i7)
         self.laptop_MACBOOK_PRO = self.browser.find_element(*LaptopDemoProductLocators.MACBOOK_PRO)
         self.laptop_MACBOOK_AIR = self.browser.find_element(*LaptopDemoProductLocators.MACBOOK_AIR)
-        self.laptop_MACBOOK_AIR = self.browser.find_element(*LaptopDemoProductLocators.MACBOOK_AIR)
         self.laptop_DELL_I7 = self.browser.find_element(*LaptopDemoProductLocators.DELL_I7)
         self.laptop_DELL_2017 = self.browser.find_element(*LaptopDemoProductLocators.DELL_2017)
 
