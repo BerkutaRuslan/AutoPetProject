@@ -6,14 +6,8 @@ from selenium import webdriver
 
 @pytest.fixture
 def browser():
-    b = webdriver.Chrome()
+    b = webdriver.Chrome(executable_path=chromedriver_binary.chromedriver_filename)
     b.get("https://www.demoblaze.com/")
     b.implicitly_wait(5)
     yield b
     b.quit()
-
-
-@pytest.fixture(scope="function")
-def random_word():
-    r = RandomWord(max_word_size=5)
-    return r.generate()
