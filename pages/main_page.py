@@ -1,7 +1,3 @@
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
-
 from locators.main_page_locators import DemoMainPageLocators, PhoneDemoProductLocators
 from locators.main_page_locators import DemoCategoryLocators
 from locators.main_page_locators import LaptopDemoProductLocators
