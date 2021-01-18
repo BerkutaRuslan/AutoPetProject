@@ -1,6 +1,6 @@
 import pytest
-from selenium import webdriver
 import chromedriver_binary
+from selenium import webdriver
 
 
 @pytest.fixture
