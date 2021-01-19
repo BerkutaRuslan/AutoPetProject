@@ -41,6 +41,7 @@ class DemoMainPage:
     def navigate_to_signup_page(self):
         self.sign_up_button.click()
 
+
 class PhonesCategory:
     def __init__(self, browser):
         self.browser = browser
