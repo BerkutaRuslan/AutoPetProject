@@ -9,8 +9,10 @@ class DemoMainPageLocators:
     CONTACT_BUTTON = (By.XPATH, "//a[.='Contact']")
     ABOUT_US_BUTTON = (By.XPATH, "//a[.='About us']")
     CART_BUTTON = (By.XPATH, "//a[@id='cartur']")
-    LOGIN_BUTTON = (By.XPATH, "//a[.='Log in']")
-    SIGN_UP_BUTTON = (By.XPATH, "//a[.='Sign up']")
+    LOGIN_BUTTON = (By.XPATH, "//a[@id='login2']")
+    SIGN_UP_BUTTON = (By.XPATH, "//a[@id='signin2']")
+    LOGOUT_BUTTON = (By.XPATH, "//a[@id='logout2']")
+    WELCOME_BUTTON = (By.ID, "nameofuser")
 
 
 @dataclass
