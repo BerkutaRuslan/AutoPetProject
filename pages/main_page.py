@@ -5,20 +5,26 @@ from locators.main_page_locators import MonitorsDemoProductLocators
 
 
 class DemoMainPage:
-    def __init__(self, browser):
+    def __init__(self, browser, registered=False):
         self.browser = browser
+
         self.home_icon = self.browser.find_element(*DemoMainPageLocators.HOMEPAGE_ICON)
         self.homepage_button = self.browser.find_element(*DemoMainPageLocators.HOMEPAGE_BUTTON)
         self.contact_button = self.browser.find_element(*DemoMainPageLocators.CONTACT_BUTTON)
         self.about_us_button = self.browser.find_element(*DemoMainPageLocators.ABOUT_US_BUTTON)
         self.cart_button = self.browser.find_element(*DemoMainPageLocators.CART_BUTTON)
-        self.login_button = self.browser.find_element(*DemoMainPageLocators.LOGIN_BUTTON)
         self.sign_up_button = self.browser.find_element(*DemoMainPageLocators.SIGN_UP_BUTTON)
         self.category_phone_button = self.browser.find_element(*DemoCategoryLocators.PHONES_BUTTON)
         self.category_laptop_button = self.browser.find_element(*DemoCategoryLocators.LAPTOPS_BUTTON)
         self.category_monitor_button = self.browser.find_element(*DemoCategoryLocators.MONITORS_BUTTON)
         self.category_previous_page_button = self.browser.find_element(*DemoCategoryLocators.PREVIOUS_BUTTON)
         self.category_next_page_button = self.browser.find_element(*DemoCategoryLocators.NEXT_BUTTON)
+
+        if registered:
+            self.welcome_label = self.browser.find_element(*DemoMainPageLocators.WELCOME_BUTTON)
+            self.logout_button = self.browser.find_element(*DemoMainPageLocators.LOGOUT_BUTTON)
+        else:
+            self.login_button = self.browser.find_element(*DemoMainPageLocators.LOGIN_BUTTON)
 
     def navigate_to_phones_category(self):
         self.category_phone_button.click()
@@ -29,6 +35,11 @@ class DemoMainPage:
     def navigate_to_monitors_category(self):
         self.category_monitor_button.click()
 
+    def navigate_lo_login_page(self):
+        self.login_button.click()
+
+    def navigate_to_signup_page(self):
+        self.sign_up_button.click()
 
 class PhonesCategory:
     def __init__(self, browser):
