@@ -23,3 +23,21 @@ def random_data():
 def user():
     return {"login": random_data(),
             "password": random_data()}
+
+
+@pytest.fixture(scope="function")
+def test_creds():
+    return {'login': 'Kazinaki',
+            'password': 'qwe123qwer'}
+
+
+@pytest.fixture(scope="function")
+def order_info():
+    return {
+        "name": "Adjara Gudju",
+        "country": "Ukraine",
+        "city": "Kiev",
+        "credit_card": "1234 5678 1234 5678",
+        "month": "07",
+        "year": "2025"
+    }
