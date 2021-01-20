@@ -1,4 +1,4 @@
-from locators.main_page_locators import DemoMainPageLocators, PhoneDemoProductLocators
+from locators.main_page_locators import DemoMainPageLocators, PhoneDemoProductLocators, EachProduct
 from locators.main_page_locators import DemoCategoryLocators
 from locators.main_page_locators import LaptopDemoProductLocators
 from locators.main_page_locators import MonitorsDemoProductLocators
@@ -41,6 +41,9 @@ class DemoMainPage:
     def navigate_to_signup_page(self):
         self.sign_up_button.click()
 
+    def navigate_to_cart(self):
+        self.cart_button.click()
+
 
 class PhonesCategory:
     def __init__(self, browser):
@@ -53,6 +56,9 @@ class PhonesCategory:
         self.phones_IPHONE_6_32GB = self.browser.find_element(*PhoneDemoProductLocators.IPHONE_6_32GB)
         self.phones_SONY_XPERIA = self.browser.find_element(*PhoneDemoProductLocators.SONY_XPERIA)
         self.phones_HTC_ONE_M9 = self.browser.find_element(*PhoneDemoProductLocators.HTC_ONE_M9)
+
+    def navigate_to_nokia_lumia_product(self):
+        self.phones_NOKIA_LUMIA_1520.click()
 
 
 class LaptopsCategory:
@@ -72,3 +78,13 @@ class MonitorsCategory:
         self.browser = browser
         self.monitor_APPLE_MONITOR_24 = self.browser.find_element(*MonitorsDemoProductLocators.APPLE_MONITOR_24)
         self.monitor_ASUS_FULL_HD = self.browser.find_element(*MonitorsDemoProductLocators.ASUS_FULL_HD)
+
+
+class EachProductClass:
+    def __init__(self, browser):
+        self.browser = browser
+
+        self.add_to_cart = self.browser.find_element(*EachProduct.ADD_TO_CART_BUTTON)
+
+    def add_product_to_cart(self):
+        self.add_to_cart.click()
