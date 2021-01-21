@@ -30,6 +30,14 @@ def test_cart_button(browser):
     main_page.navigate_to_cart()
 
 
+def test_cart_button_after_login(browser, test_creds):
+    main_page = DemoMainPage(browser)
+    main_page.navigate_lo_login_page()
+    LoginPage(browser).enter_valid_credentials(login=test_creds["login"], password=test_creds["password"])
+    WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.ID, "cartur")))
+    DemoMainPage(browser).navigate_to_cart()
+
+
 def test_next_previous_category_buttons(browser):
     main_page = DemoMainPage(browser)
     main_page.category_next_page_button.click()
