@@ -1,3 +1,5 @@
+from locators.about_us_page_locators import AboutUsPageLocators
+from locators.contact_page_locators import ContactPageLocators
 from locators.main_page_locators import DemoMainPageLocators, PhoneDemoProductLocators, EachProduct
 from locators.main_page_locators import DemoCategoryLocators
 from locators.main_page_locators import LaptopDemoProductLocators
@@ -43,6 +45,29 @@ class DemoMainPage:
 
     def navigate_to_cart(self):
         self.cart_button.click()
+
+
+class ContactFormPage:
+    def __init__(self, browser):
+        self.browser = browser
+        self.contact_email = self.browser.find_element(*ContactPageLocators.CONTACT_EMAIL_FORM)
+        self.contact_name = self.browser.find_element(*ContactPageLocators.CONTACT_NAME_FORM)
+        self.message = self.browser.find_element(*ContactPageLocators.MESSAGE_FORM)
+        self.close_button = self.browser.find_element(*ContactPageLocators.CLOSE_BUTTON)
+        self.send_message_button = self.browser.find_element(*ContactPageLocators.SEND_MESSAGE_BUTTON)
+
+    def send_message(self, contact_email, contact_name, message):
+        self.contact_email.send_keys(contact_email)
+        self.contact_name.send_keys(contact_name)
+        self.message.send_keys(message)
+        self.send_message_button.click()
+
+
+class AboutUsPage:
+    def __init__(self, browser):
+        self.browser = browser
+        self.play_button = self.browser.find_element(*AboutUsPageLocators.PLAY_BUTTON)
+        self.close_button = self.browser.find_element(*AboutUsPageLocators.CLOSE_BUTTON)
 
 
 class PhonesCategory:

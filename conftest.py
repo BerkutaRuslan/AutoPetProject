@@ -41,3 +41,12 @@ def order_info():
         "month": "07",
         "year": "2025"
     }
+
+
+@pytest.fixture(scope="function")
+def contact_message_data():
+    return {
+        "contact_email": "admin@admin.com",
+        "contact_name": "test_name",
+        "message": "test test to fill message form"
+    }
