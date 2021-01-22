@@ -46,6 +46,21 @@ class DemoMainPage:
     def navigate_to_cart(self):
         self.cart_button.click()
 
+    def navigate_to_contact(self):
+        self.contact_button.click()
+
+    def navigate_to_about_us(self):
+        self.about_us_button.click()
+
+    def push_next_category_page(self):
+        self.category_next_page_button.click()
+
+    def push_previous_category_page(self):
+        self.category_previous_page_button.click()
+
+    def push_logout_button(self):
+        self.logout_button.click()
+
 
 class ContactFormPage:
     def __init__(self, browser):
@@ -68,6 +83,12 @@ class AboutUsPage:
         self.browser = browser
         self.play_button = self.browser.find_element(*AboutUsPageLocators.PLAY_BUTTON)
         self.close_button = self.browser.find_element(*AboutUsPageLocators.CLOSE_BUTTON)
+
+    def push_play_button(self):
+        self.play_button.click()
+
+    def push_close_button(self):
+        self.close_button.click()
 
 
 class PhonesCategory:
