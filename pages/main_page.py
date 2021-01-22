@@ -1,9 +1,13 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+
 from locators.about_us_page_locators import AboutUsPageLocators
 from locators.contact_page_locators import ContactPageLocators
 from locators.main_page_locators import DemoMainPageLocators, PhoneDemoProductLocators, EachProduct
 from locators.main_page_locators import DemoCategoryLocators
 from locators.main_page_locators import LaptopDemoProductLocators
 from locators.main_page_locators import MonitorsDemoProductLocators
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class DemoMainPage:
@@ -29,12 +33,15 @@ class DemoMainPage:
             self.login_button = self.browser.find_element(*DemoMainPageLocators.LOGIN_BUTTON)
 
     def navigate_to_phones_category(self):
+        WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[.='Phones']")))
         self.category_phone_button.click()
 
     def navigate_to_laptops_category(self):
+        WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[.='Laptops']")))
         self.category_laptop_button.click()
 
     def navigate_to_monitors_category(self):
+        WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[.='Monitors']")))
         self.category_monitor_button.click()
 
     def navigate_lo_login_page(self):
@@ -45,6 +52,21 @@ class DemoMainPage:
 
     def navigate_to_cart(self):
         self.cart_button.click()
+
+    def navigate_to_contact(self):
+        self.contact_button.click()
+
+    def navigate_to_about_us(self):
+        self.about_us_button.click()
+
+    def push_next_category_page(self):
+        self.category_next_page_button.click()
+
+    def push_previous_category_page(self):
+        self.category_previous_page_button.click()
+
+    def push_logout_button(self):
+        self.logout_button.click()
 
 
 class ContactFormPage:
@@ -68,6 +90,12 @@ class AboutUsPage:
         self.browser = browser
         self.play_button = self.browser.find_element(*AboutUsPageLocators.PLAY_BUTTON)
         self.close_button = self.browser.find_element(*AboutUsPageLocators.CLOSE_BUTTON)
+
+    def push_play_button(self):
+        self.play_button.click()
+
+    def push_close_button(self):
+        self.close_button.click()
 
 
 class PhonesCategory:

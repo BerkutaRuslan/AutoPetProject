@@ -20,7 +20,9 @@ class LoginPage:
         self.enter_button = self.browser.find_element(*LoginWindowLocators.ENTER_BUTTON)
 
     def enter_valid_credentials(self, login, password):
+        WebDriverWait(self.browser, 10).until(EC.visibility_of_element_located((By.ID, "loginusername")))
         self.login_input.send_keys(login)
+        WebDriverWait(self.browser, 10).until(EC.visibility_of_element_located((By.ID, "loginpassword")))
         self.password_input.send_keys(password)
         self.enter_button.click()
         WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[@id='logout2']")))
