@@ -26,8 +26,8 @@ class OrderPage:
         self.credit_card_input = self.browser.find_element(*OrderPageLocators.CREDIT_CARD_INPUT)
         self.month_input = self.browser.find_element(*OrderPageLocators.MONTH_INPUT)
         self.year_input = self.browser.find_element(*OrderPageLocators.YEAR_INPUT)
-        self.close_button = self.browser.find_element(**OrderPageLocators.CLOSE_BUTTON)
-        self.purchase_button = self.browser.find_element(**OrderPageLocators.PURCHASE_BUTTON)
+        self.close_button = self.browser.find_element(*OrderPageLocators.CLOSE_BUTTON)
+        self.purchase_button = self.browser.find_element(*OrderPageLocators.PURCHASE_BUTTON)
 
     def enter_order_data(self, name, country, city, credit_card, month, year):
         self.name_input.send_keys(name)

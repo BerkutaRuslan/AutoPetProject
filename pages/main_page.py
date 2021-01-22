@@ -44,6 +44,7 @@ class DemoMainPage:
         self.sign_up_button.click()
 
     def navigate_to_cart(self):
+        # self.cart_button = self.browser.find_element(*DemoMainPageLocators.CART_BUTTON)
         self.cart_button.click()
 
 
