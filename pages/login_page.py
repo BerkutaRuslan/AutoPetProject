@@ -1,4 +1,10 @@
+from time import sleep
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from locators.login_locators import LoginWindowLocators
+from pages.main_page import DemoMainPage
 
 
 class LoginPage:
@@ -17,3 +23,5 @@ class LoginPage:
         self.login_input.send_keys(login)
         self.password_input.send_keys(password)
         self.enter_button.click()
+        WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[@id='logout2']")))
+        return DemoMainPage(self.browser)
