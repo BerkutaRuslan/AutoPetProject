@@ -11,15 +11,15 @@ from utils import wait_for_alert_and_accept
 from selenium.webdriver.support import expected_conditions as EC
 
 
-# def test_add_cart_item(browser, test_creds):
-#     main_page = DemoMainPage(browser)
-#     main_page.navigate_lo_login_page()
-#     LoginPage(browser).enter_valid_credentials(login=test_creds["login"], password=test_creds["password"])
-#     sleep(1)
-#     DemoMainPage(browser).navigate_to_phones_category()
-#     PhonesCategory(browser).navigate_to_nokia_lumia_product()
-#     EachProductClass(browser).add_product_to_cart()
-#     wait_for_alert_and_accept(browser, 10)
+def test_add_cart_item(browser, test_creds):
+    main_page = DemoMainPage(browser)
+    main_page.navigate_lo_login_page()
+    LoginPage(browser).enter_valid_credentials(login=test_creds["login"], password=test_creds["password"])
+    sleep(1)
+    DemoMainPage(browser).navigate_to_phones_category()
+    PhonesCategory(browser).navigate_to_nokia_lumia_product()
+    EachProductClass(browser).add_product_to_cart()
+    wait_for_alert_and_accept(browser, 10)
 
 
 def test_make_an_order(browser, order_info, test_creds):
