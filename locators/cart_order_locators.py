@@ -12,4 +12,4 @@ class OrderPageLocators:
     MONTH_INPUT = (By.ID, 'month')
     YEAR_INPUT = (By.ID, 'year')
     CLOSE_BUTTON = (By.ID, 'orderModal')
-    PURCHASE_BUTTON = (By.ID, 'Purchase')
+    PURCHASE_BUTTON = (By.XPATH, "//button[.='Purchase']")
