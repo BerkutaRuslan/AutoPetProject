@@ -1,5 +1,6 @@
 from time import sleep
 
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -20,10 +21,18 @@ class LoginPage:
         self.enter_button = self.browser.find_element(*LoginWindowLocators.ENTER_BUTTON)
 
     def enter_valid_credentials(self, login, password):
-        WebDriverWait(self.browser, 10).until(EC.visibility_of_element_located((By.ID, "loginusername")))
+        wait = WebDriverWait(self.browser, 2)
+
         self.login_input.send_keys(login)
-        WebDriverWait(self.browser, 10).until(EC.visibility_of_element_located((By.ID, "loginpassword")))
+        try:
+            wait.until(EC.text_to_be_present_in_element_value((By.ID, "loginusername"), login))
+        except TimeoutException:
+            self.login_input.send_keys(login)
         self.password_input.send_keys(password)
+        try:
+            wait.until(EC.text_to_be_present_in_element_value((By.ID, "loginpassword"), password))
+        except TimeoutException:
+            self.password_input.send_keys(password)
         self.enter_button.click()
-        WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[@id='logout2']")))
+        wait.until(EC.element_to_be_clickable((By.XPATH, "//a[@id='logout2']")))
         return DemoMainPage(self.browser)
